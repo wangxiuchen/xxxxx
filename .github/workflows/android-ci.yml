@@ -32,17 +32,11 @@ jobs:
         with:
           gradle-version: "9.4.1"
 
-      - name: Generate Gradle Wrapper
-        run: gradle wrapper --gradle-version 9.4.1
-
-      - name: Make Gradle Wrapper executable
-        run: chmod +x ./gradlew
-
       - name: Run unit tests
-        run: ./gradlew test
+        run: gradle test
 
       - name: Assemble debug APK
-        run: ./gradlew assembleDebug
+        run: gradle assembleDebug
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
